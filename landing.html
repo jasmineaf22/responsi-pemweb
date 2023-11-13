@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        height: 5rem;
+        padding: 0.5rem;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        right: 0;
+        left: 0;
+      }
+      .icon {
+        display: flex;
+        align-items: center;
+      }
+      .navbar {
+        padding: 0.5rem;
+        display: flex;
+        width: 45vw;
+        justify-content: space-around;
+      }
+      .nav-search {
+        display: flex;
+        align-items: center;
+      }
+      .nav-search > input {
+        font-weight: bold;
+        font-size: 1rem;
+        padding: 10px;
+        width: 30vw;
+        color: white;
+        background-color: rgb(61, 61, 61);
+        border: none;
+        border-radius: 4px;
+      }
+      .nav-search > input:active {
+        border-color: transparent;
+      }
+      .nav-avatar {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="icon">
+        <img src="images/horrorflix.png" alt="icon" width="200px" />
+      </div>
+      <div class="navbar">
+        <div class="nav-search">
+          <input type="text" name="search" placeholder="Search..." />
+        </div>
+        <div class="nav-avatar">
+          <a href="#"><img src="images/avatar.png" alt="avatar" width="40px" /></a>
+        </div>
+      </div>
+    </nav>
+    <main>
+        
+    </main>
+  </body>
+</html>
