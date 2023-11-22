@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Cast</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: sans-serif;
+      }
+      nav {
+        height: 5rem;
+        padding: 0.5rem;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+      }
+      .icon {
+        display: flex;
+        align-items: center;
+      }
+      .navbar {
+        padding: 1rem 2rem 1rem 1rem;
+        display: flex;
+        width: 45vw;
+        justify-content: end;
+      }
+      .nav-avatar {
+        margin-left: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        fill: white;
+      }
+      main {
+        box-sizing: border-box;
+        height: 100vh;
+        background-color: black;
+        padding: 7rem 0 2rem 5rem;
+      }
+      h1 {
+        color: red;
+      }
+      .container {
+        width: 90%;
+      }
+      label {
+        display: block;
+        color: white;
+        margin-bottom: 0.6rem;
+      }
+      form {
+        padding: 1rem;
+      }
+      #name-cast, #name-chara,
+      #duration {
+        margin-bottom: 0.6rem;
+        padding: 0.5rem;
+        border-radius: 0.6rem;
+        border: none;
+        background-color: rgb(77, 77, 77);
+        display: block;
+        width: 100%;
+        font-weight: bold;
+        color: rgb(136, 136, 136);
+      }
+      #save {
+        padding: 0.5rem;
+        padding: 0.2rem 3.1rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: rgb(114, 0, 0);
+        font-weight: bold;
+        cursor: pointer;
+      }
+      #save:hover {
+        background-color: rgb(145, 0, 0);
+      }
+      .label {
+        width: 5rem;
+        padding: 0.7rem 1.5rem;
+        border-radius: 0.6rem;
+        text-align: center;
+        background-color: rgb(77, 77, 77);
+      }
+      .label:hover {
+        cursor: pointer;
+      }
+      input[type='file'] {
+        display: none;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="icon">
+        <img src="images/horrorflix.png" alt="icon" width="200px" />
+      </div>
+      <div class="navbar">
+        <div class="nav-avatar">
+          <a href="#"
+            ><svg xmlns="http://www.w3.org/2000/svg" width="1.7rem" viewBox="0 0 448 512">
+              <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" /></svg
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <h1>Add Cast</h1>
+      <div class="container">
+        <form action="" method="post">
+          <label for="name-cast">Name Actor/Actress</label>
+          <input type="text" name="name-cast" id="name-cast" autocomplete="off" placeholder="Name Actor/Actress" />
+          <label for="name-chara">Name Character Movie</label>
+          <input type="text" name="name-chara" id="name-chara" autocomplete="off" placeholder="Name Character Movie" />
+          <label for="file">Image Actor/Actress</label>
+          <input type="file" name="file" id="file" accept="image/*" />
+          <label for="file">
+            <div class="label">
+              <svg width="40" height="auto" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0.00634766 6.375C0.00634766 4.7174 0.664828 3.12769 1.83693 1.95558C3.00903 0.78348 4.59874 0.125 6.25635 0.125H43.7563C45.414 0.125 47.0037 0.78348 48.1758 1.95558C49.3479 3.12769 50.0063 4.7174 50.0063 6.375V37.625C50.0063 39.2826 49.3479 40.8723 48.1758 42.0444C47.0037 43.2165 45.414 43.875 43.7563 43.875H6.25635C4.59874 43.875 3.00903 43.2165 1.83693 42.0444C0.664828 40.8723 0.00634766 39.2826 0.00634766 37.625V6.375ZM3.13135 34.5V37.625C3.13135 38.4538 3.46059 39.2487 4.04664 39.8347C4.63269 40.4208 5.42755 40.75 6.25635 40.75H43.7563C44.5851 40.75 45.38 40.4208 45.9661 39.8347C46.5521 39.2487 46.8813 38.4538 46.8813 37.625V26.6875L35.0782 20.6031C34.7852 20.4563 34.4534 20.4054 34.1298 20.4576C33.8062 20.5097 33.5072 20.6623 33.2751 20.8937L21.6813 32.4875L13.3688 26.95C13.0687 26.7502 12.7087 26.6603 12.3499 26.6956C11.9911 26.7309 11.6555 26.8893 11.4001 27.1437L3.13135 34.5ZM18.7563 14.1875C18.7563 12.9443 18.2625 11.752 17.3834 10.8729C16.5043 9.99386 15.312 9.5 14.0688 9.5C12.8256 9.5 11.6334 9.99386 10.7543 10.8729C9.87521 11.752 9.38135 12.9443 9.38135 14.1875C9.38135 15.4307 9.87521 16.623 10.7543 17.5021C11.6334 18.3811 12.8256 18.875 14.0688 18.875C15.312 18.875 16.5043 18.3811 17.3834 17.5021C18.2625 16.623 18.7563 15.4307 18.7563 14.1875Z"
+                  fill="#FFFEFE"
+                />
+              </svg>
+              <p style="margin-top: 10px; color: rgb(136, 136, 136)">Upload here</p>
+            </div>
+          </label>
+
+          <input type="submit" id="save" name="save" value="Save" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

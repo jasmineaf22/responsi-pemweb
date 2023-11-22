@@ -4,53 +4,191 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      nav {
-        height: 5rem;
-        padding: 0.5rem;
-        background-color: black;
-        display: flex;
-        justify-content: space-between;
-        position: fixed;
-        right: 0;
-        left: 0;
-      }
-      .icon {
-        display: flex;
-        align-items: center;
-      }
-      .navbar {
-        padding: 0.5rem;
-        display: flex;
-        width: 45vw;
-        justify-content: space-around;
-      }
-      .nav-search {
-        display: flex;
-        align-items: center;
-      }
-      .nav-search > input {
-        font-weight: bold;
-        font-size: 1rem;
-        padding: 10px;
-        width: 30vw;
-        color: white;
-        background-color: rgb(61, 61, 61);
-        border: none;
-        border-radius: 4px;
-      }
-      .nav-search > input:active {
-        border-color: transparent;
-      }
-      .nav-avatar {
-        display: flex;
-        align-items: center;
-      }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html::-webkit-scrollbar {
+      width: 0.4rem;
+    } 
+    html::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 6px;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    nav {
+      height: 5rem;
+      padding: 0.5rem;
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+    .navbar {
+      padding: 1rem 2rem 1rem 1rem;
+      display: flex;
+      width: 45vw;
+      justify-content: end;
+    }
+    .nav-search {
+      display: flex;
+      fill:  rgb(205, 205, 205);
+      position: relative;
+      align-items: center;
+    }
+    .nav-search > input {
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 10px;
+      width: 30vw;
+      color: white;
+      background-color: rgb(61, 61, 61);
+      border: none;
+      border-radius: 4px;
+    }
+    .nav-search > input:focus {
+      outline: none;
+      border: none;
+    }
+    .nav-search > svg {
+      position: absolute;
+      right: 6px;
+    }
+    .nav-avatar {
+      margin-left: 2rem;
+      /* background-color: aliceblue; */
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      fill: white;
+    }
+    main {
+      box-sizing: border-box;
+      background-color: black;
+      padding: 7rem 0 2rem 5rem;
+    }
+
+    .hero {
+      padding: 2rem;
+    }
+    .slide-wrapper {
+      max-width: 60rem;
+      height: 20rem;
+      margin: 0 auto;
+    }
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+      border-radius: 0.5rem;
+    }
+
+    .slider::-webkit-scrollbar {
+      height: 0.4rem;
+    }
+
+    .slider::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 6px;
+    }
+    .slider img {
+      flex: 1 0 100%;
+      scroll-snap-align: start;
+      max-width: 100%;
+    }
+    .region>h1 {
+      color: white;
+      font-size: 3rem;
+    }
+    .region {
+      display: flex;
+      justify-content: space-between;
+    }
+    .region>p {
+      display: flex;
+      align-items: center;
+    }
+    .region>p>a {
+      margin-right: 1rem;
+      font-weight: bold;
+      font-size: 1.5rem;
+      background-color: rgb(114, 0, 0);
+      border-radius: 0.7rem;
+      padding: 0.5rem 1.7rem;
+      color: black;
+    }
+    .region>p>a:hover {
+      background-color: rgb(145, 0, 0);
+    }
+    .wrapper {
+      width: 100%;
+    }
+    .wrap-west, .wrep-indonesian {
+      margin-bottom: 2rem;
+    }
+    .wrapper-scroll {
+      height: 20rem;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      border-bottom: solid white 2px;
+    }
+    .wrapper-scroll::-webkit-scrollbar {
+      width: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    .wrapper-scroll>a:hover {
+      transform: scale(110%);
+    }
+    .items {
+      height: 13rem;
+      width: 12rem;
+      margin: 0 2rem 0 0.7rem;
+    }
+    .images {
+      width: 100%;
+      border-radius: 0.8rem;
+      overflow: hidden;
+    }
+    .images>img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .title>h3 {
+      color: white;
+    }
+
+
+
+    footer {
+      background-color: black;
+      color: white;
+      padding-bottom: 1rem;
+      text-align: center;
+    }
+
+
+
+
+
+
     </style>
+
   </head>
   <body>
     <nav>
@@ -60,14 +198,107 @@
       <div class="navbar">
         <div class="nav-search">
           <input type="text" name="search" placeholder="Search..." />
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.3rem" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
         </div>
         <div class="nav-avatar">
-          <a href="#"><img src="images/avatar.png" alt="avatar" width="40px" /></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1.7rem" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a>
         </div>
       </div>
     </nav>
+
     <main>
-        
+      <section class="hero">
+        <div class="slide-wrapper">
+          <div class="slider">
+            <img id="slide-1" src="images/one.jpg" alt="pict" width="">
+            <img id="slide-2" src="images/two.jpg" alt="pict">
+            <img id="slide-3" src="images/three.jpg" alt="pict">
+            <img id="slide-4" src="images/four.jpg" alt="pict">
+          </div>
+        </div>
+      </section>
+      
+
+      <div class="wrapper">
+        <div class="wrap-west">
+          <div class="region">
+            <h1>West Movie</h1>
+            <p><a href="add.html">Add Movie</a></p>
+          </div>
+          <div class="wrapper-scroll">
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/1.jpg" alt="us" width=""></div>
+                <div class="title"><h3>Us(2019)</h4></div>
+              </div>
+            </a>
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/2.jpg" alt="us" width=""></div>
+                <div class="title"><h3>The Nun 2 (2023)</h4></div>
+              </div>
+            </a>
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/3.jpg" alt="us" width=""></div>
+                <div class="title"><h3>The Conjuring: The Devil Made Me Do It</h4></div>
+              </div>
+            </a>
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/4.jpg" alt="us" width=""></div>
+                <div class="title"><h3>Insidious: The Red Door (2023)</h4></div>
+              </div>
+            </a>
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/5.jpg" alt="us" width=""></div>
+                <div class="title"><h3>Annabelle 3 (2019)</h4></div>
+              </div>
+            </a>
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/6.jpg" alt="us" width=""></div>
+                <div class="title"><h3>Cult Of Chucky (2017)</h4></div>
+              </div>
+            </a>
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/7.jpg" alt="us" width=""></div>
+                <div class="title"><h3>The Exorcist: Belivier (2023)</h4></div>
+              </div>
+            </a>
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/8.jpg" alt="us" width=""></div>
+                <div class="title"><h3>It Chapter Two(2019)</h4></div>
+              </div> 
+            </a>
+          </div>
+        </div>  
+        <div class="wrep-indonesian">
+          <div class="region">
+            <h1>Indonesian Movie</h1>
+            <p><a href="add.html">Add Movie</a></p>
+          </div>
+          <div class="wrapper-scroll">
+            <a href="">
+              <div class="items">
+                <div class="images"><img src="images/satu.jpg" alt="us" width=""></div>
+                <div class="title"><h3>Pengabdi Setan 2 (2019)</h4></div>
+              </div>
+            </a>
+          </div>
+        </div>  
+      </div>
     </main>
+
+    <footer>
+      <h3>Copyright</h3>
+    </footer>
+
+
+
+    
   </body>
 </html>
