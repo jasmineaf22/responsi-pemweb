@@ -11,8 +11,8 @@
         padding: 0;
       }
       html::-webkit-scrollbar {
-      width: 0.4rem;
-      } 
+        width: 0.4rem;
+      }
       html::-webkit-scrollbar-thumb {
         background-color: #888;
         border-radius: 6px;
@@ -30,15 +30,45 @@
         width: 100%;
         z-index: 999;
       }
-      nav>a {
-      display: flex;
-      align-items: center;
+      nav > a {
+        display: flex;
+        align-items: center;
       }
       .navbar {
         padding: 1rem 2rem 1rem 1rem;
         display: flex;
         width: 45vw;
         justify-content: end;
+      }
+      .popup {
+        position: absolute;
+        bottom: -2rem;
+        right: 3rem;
+      }
+      .block {
+        display: block;
+      }
+      .hidden {
+        display: none;
+      }
+      .popup p a {
+        text-decoration: none;
+      }
+      .popup > p {
+        display: flex;
+        align-items: center;
+      }
+      .popup > p > a {
+        margin-right: 1rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+        background-color: rgb(114, 0, 0);
+        border-radius: 0.7rem;
+        padding: 0.5rem 1.7rem;
+        color: black;
+      }
+      .popup > p > a:hover {
+        background-color: #c00000;
       }
       .nav-avatar {
         margin-left: 2rem;
@@ -134,7 +164,7 @@
       }
       #save:hover {
         background-color: #c00000;
-      } 
+      }
       .label {
         width: 5rem;
         padding: 0.7rem 1.5rem;
@@ -166,16 +196,24 @@
     <nav>
       <a href="landing.html">
         <div class="icon">
-            <img src="images/horrorflix.png" alt="icon" width="200px" />
+          <img src="images/horrorflix.png" alt="icon" width="200px" />
         </div>
       </a>
       <div class="navbar">
         <div class="nav-avatar">
-          <a href="#">
+          <a class="avatar" href="#">
             <svg width="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M9.72222 7.77778C9.72222 5.71498 10.5417 3.73667 12.0003 2.27806C13.4589 0.819442 15.4372 0 17.5 0C19.5628 0 21.5411 0.819442 22.9997 2.27806C24.4583 3.73667 25.2778 5.71498 25.2778 7.77778C25.2778 9.84057 24.4583 11.8189 22.9997 13.2775C21.5411 14.7361 19.5628 15.5556 17.5 15.5556C15.4372 15.5556 13.4589 14.7361 12.0003 13.2775C10.5417 11.8189 9.72222 9.84057 9.72222 7.77778ZM9.72222 19.4444C7.14373 19.4444 4.67084 20.4687 2.84757 22.292C1.0243 24.1153 0 26.5882 0 29.1667C0 30.7138 0.614582 32.1975 1.70854 33.2915C2.80251 34.3854 4.28624 35 5.83333 35H29.1667C30.7138 35 32.1975 34.3854 33.2915 33.2915C34.3854 32.1975 35 30.7138 35 29.1667C35 26.5882 33.9757 24.1153 32.1524 22.292C30.3292 20.4687 27.8563 19.4444 25.2778 19.4444H9.72222Z" fill="white"/>
-              </svg>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.72222 7.77778C9.72222 5.71498 10.5417 3.73667 12.0003 2.27806C13.4589 0.819442 15.4372 0 17.5 0C19.5628 0 21.5411 0.819442 22.9997 2.27806C24.4583 3.73667 25.2778 5.71498 25.2778 7.77778C25.2778 9.84057 24.4583 11.8189 22.9997 13.2775C21.5411 14.7361 19.5628 15.5556 17.5 15.5556C15.4372 15.5556 13.4589 14.7361 12.0003 13.2775C10.5417 11.8189 9.72222 9.84057 9.72222 7.77778ZM9.72222 19.4444C7.14373 19.4444 4.67084 20.4687 2.84757 22.292C1.0243 24.1153 0 26.5882 0 29.1667C0 30.7138 0.614582 32.1975 1.70854 33.2915C2.80251 34.3854 4.28624 35 5.83333 35H29.1667C30.7138 35 32.1975 34.3854 33.2915 33.2915C34.3854 32.1975 35 30.7138 35 29.1667C35 26.5882 33.9757 24.1153 32.1524 22.292C30.3292 20.4687 27.8563 19.4444 25.2778 19.4444H9.72222Z"
+                fill="white"
+              />
+            </svg>
           </a>
+        </div>
+        <div class="popup hidden">
+          <p><a href="addmovie.html">Add Movie</a></p>
         </div>
       </div>
     </nav>
@@ -231,5 +269,14 @@
         </form>
       </div>
     </main>
+
+    <script>
+      const avatar = document.querySelector('.avatar');
+      avatar.addEventListener('click', function () {
+        const popup = document.querySelector('.popup');
+        popup.classList.toggle('hidden');
+        popup.classList.toggle('block');
+      });
+    </script>
   </body>
 </html>
