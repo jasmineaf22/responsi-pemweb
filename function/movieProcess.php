@@ -1,0 +1,66 @@
+<?php
+include 'connect.php';
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $submovie = htmlspecialchars($_POST['submovie']);
+    $year = htmlspecialchars($_POST['year']);
+    $duration = htmlspecialchars($_POST['duration']);
+    $ratings = htmlspecialchars($_POST['ratings']);
+    $synopsis = htmlspecialchars($_POST['synopsis']);
+
+    if (isset($_GET['edit'])) {
+        $id_movie = htmlspecialchars($_GET['edit']);
+
+        if ($_FILES["poster"]["size"] > 0) {
+            $target_dir = "../images/poster/" . (($submovie == 'west') ? 'west/' : 'indo/');
+            $target_file = $target_dir . basename($_FILES["poster"]["name"]);
+
+            $check = getimagesize($_FILES["poster"]["tmp_name"]);
+            if ($check !== false) {
+                if (move_uploaded_file($_FILES["poster"]["tmp_name"], $target_file)) {
+                    $poster = basename($_FILES["poster"]["name"]);
+                    $sql = "UPDATE movie SET name='$name', image='$poster', submovie='$submovie', year='$year', duration='$duration', star='$ratings', synopsis='$synopsis' WHERE id_movie='$id_movie'";
+                } else {
+                    echo "Error uploading file.";
+                    exit;
+                }
+            } else {
+                echo "File is not an image.";
+                exit;
+            }
+        } else {
+            $sql = "UPDATE movie SET name='$name', submovie='$submovie', year='$year', duration='$duration', star='$ratings', synopsis='$synopsis' WHERE id_movie='$id_movie'";
+        }
+    } else {
+        $target_dir = "../images/poster/" . (($submovie == 'west') ? 'west/' : 'indo/');
+        $target_file = $target_dir . basename($_FILES["poster"]["name"]);
+
+        $check = getimagesize($_FILES["poster"]["tmp_name"]);
+        if ($check !== false) {
+            if (move_uploaded_file($_FILES["poster"]["tmp_name"], $target_file)) {
+                $poster = basename($_FILES["poster"]["name"]);
+                $sql = "INSERT INTO movie (name, image, submovie, star, synopsis, year, duration) 
+                        VALUES ('$name', '$poster','$submovie', '$ratings', '$synopsis', '$year', '$duration')";
+            } else {
+                echo "Error uploading file.";
+                exit;
+            }
+        } else {
+            echo "File is not an image.";
+            exit;
+        }
+    }
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        header("Location: ../views/landing.php");
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+} else {
+    echo "User not logged in.";
+}
+?>
