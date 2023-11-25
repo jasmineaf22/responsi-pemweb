@@ -44,33 +44,32 @@ if ($user['isAdmin'] != 1 || ($user['isAdmin'] == 1 && !isset($_GET['mov']))) {
       }
       .popup {
         position: absolute;
-        bottom: -2rem;
+        bottom: -3.5rem;
         right: 3rem;
+        background-color: #686868;
+        display: flex;
+        list-style: none;
+        padding: 0.5rem 2rem 0.5rem 1rem;
+        box-sizing: border-box;
+      }
+      li {
+        box-sizing: border-box;
+        margin: 0.5rem 0;
+      }
+      .popup a:hover {
+        color: #ff0000;
+      }
+      .popup a {
+        text-decoration: none;
+        font-weight: bold;
+        transition-duration: 300ms;
+        color: white;
       }
       .block {
         display: block;
       }
       .hidden {
         display: none;
-      }
-      .popup p a {
-        text-decoration: none;
-      }
-      .popup > p {
-        display: flex;
-        align-items: center;
-      }
-      .popup > p > a {
-        margin-right: 1rem;
-        font-weight: bold;
-        font-size: 1.5rem;
-        background-color: rgb(114, 0, 0);
-        border-radius: 0.7rem;
-        padding: 0.5rem 1.7rem;
-        color: black;
-      }
-      .popup > p > a:hover {
-        background-color: #c00000;
       }
       .nav-avatar {
         margin-left: 2rem;
@@ -90,6 +89,7 @@ if ($user['isAdmin'] != 1 || ($user['isAdmin'] == 1 && !isset($_GET['mov']))) {
       }
       .container {
         width: 90%;
+        position: relative;
       }
       label {
         display: block;
@@ -114,7 +114,7 @@ if ($user['isAdmin'] != 1 || ($user['isAdmin'] == 1 && !isset($_GET['mov']))) {
       }
       #save {
         padding: 0.5rem;
-        padding: 0.2rem 3.1rem;
+        padding: 0.3rem 1.5rem;
         border-radius: 1rem;
         border: none;
         background-color: rgb(114, 0, 0);
@@ -144,18 +144,34 @@ if ($user['isAdmin'] != 1 || ($user['isAdmin'] == 1 && !isset($_GET['mov']))) {
         outline: none;
         border: none;
       }
+      .return {
+        margin: 0 1rem;
+        padding: 0.3rem 1rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: rgb(114, 0, 0);
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: black;
+        position: absolute;
+        bottom: 0.9rem;
+        left: 5.5rem;
+      }
+      .return:hover {
+        background-color: rgb(145, 0, 0);
+      }
     </style>
   </head>
   <body>
-    <nav>
+  <nav>
       <a href="landing.php">
-        <div class="icon">
           <img src="../images/horrorflix.png" alt="icon" width="200px" />
-        </div>
       </a>
       <div class="navbar">
         <div class="nav-avatar">
-          <a class="avatar" href="#">
+          <div class="avatar">
             <svg width="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fill-rule="evenodd"
@@ -164,13 +180,17 @@ if ($user['isAdmin'] != 1 || ($user['isAdmin'] == 1 && !isset($_GET['mov']))) {
                 fill="white"
               />
             </svg>
-          </a>
+          </div>
+          <ul class="popup hidden">
+                <li>
+                    <a href="profile.php">Profile</a>
+                </li>
+                <li>
+                    <a href="../function/logout.php">Log out</a>
+                </li>
+          </ul>
         </div>
-        <div class="popup hidden">
-          <p><a href="../function/logout.php">Log out</a></p>
-        </div>
-      </div>
-    </nav>
+      </nav>
     <main>
       <h1>Add Cast</h1>
       <div class="container">
@@ -198,7 +218,7 @@ if ($user['isAdmin'] != 1 || ($user['isAdmin'] == 1 && !isset($_GET['mov']))) {
 
           <input type="submit" id="save" name="save" value="Save" />
         </form>
-        <button>return</button>
+        <a href="review.php" class="return">Return</a>
       </div>
     </main>
     <script>

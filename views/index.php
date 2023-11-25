@@ -106,11 +106,9 @@ if (isset($_SESSION['user'])) {
   <body>
     <nav>
         <div class="top">
-            <a href="landing.php">
               <div class="icon">
                 <img src="../images/horrorflix.png" alt="icon" width="550px" />
               </div>
-            </a>
             <div class="navbar">
               <div class="nav-avatar">
                 <a href="login.php">
