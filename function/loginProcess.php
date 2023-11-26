@@ -21,12 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../views/landing.php");
             exit;
         } else {
-            echo "<script>alert('Password salah. Silakan coba lagi.');
-            window.location.href='../views/login.php';</script>";
+            header("Location: ../views/login.php");
         }
     } else {
-        echo "<script>alert('User dengan email '$email' tidak ditemukan.');
-        window.location.href='../views/login.php';</script>";
+        header("Location: ../views/login.php");
     } 
 }
 

@@ -185,11 +185,16 @@
         }
       }
       const form = document.querySelector('form');
-      form.addEventListener('submit', function (event) {
-        // event.preventDefault();
-        document.querySelector('.center').removeAttribute('hidden');
-        document.querySelector('.center').style.display = 'flex';
-      });
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    document.querySelector('.center').removeAttribute('hidden');
+    document.querySelector('.center').style.display = 'flex';
+
+    setTimeout(function () {
+        window.location.href = 'login.php';
+    }, 5000);
+});
+
       const hide = document.querySelector('svg');
       hide.addEventListener('click', function () {
         var passwordInput = document.getElementById('password');
