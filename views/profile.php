@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       label {
         color: white;
         font-weight: bold;
-        width
+        width: 20%;
     }
     input[type='text'] {
         font-weight: bold;
@@ -155,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border-radius: 0.5rem;
         border: none;
         color: black;
-        font-weight; bold;
+        font-weight: bold;
         background-color: rgb(114, 0, 0);
         font-weight: bold;
         cursor: pointer;

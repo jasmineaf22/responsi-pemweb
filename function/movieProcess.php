@@ -3,15 +3,15 @@ include 'connect.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $submovie = htmlspecialchars($_POST['submovie']);
-    $year = htmlspecialchars($_POST['year']);
-    $duration = htmlspecialchars($_POST['duration']);
-    $ratings = htmlspecialchars($_POST['ratings']);
-    $synopsis = htmlspecialchars($_POST['synopsis']);
+    $name = $_POST['name'];
+    $submovie = $_POST['submovie'];
+    $year = $_POST['year'];
+    $duration = $_POST['duration'];
+    $ratings = $_POST['ratings'];
+    $synopsis = $_POST['synopsis'];
 
     if (isset($_GET['edit'])) {
-        $id_movie = htmlspecialchars($_GET['edit']);
+        $id_movie = $_GET['edit'];
 
         if ($_FILES["poster"]["size"] > 0) {
             $target_dir = "../images/poster/" . (($submovie == 'west') ? 'west/' : 'indo/');

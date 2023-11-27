@@ -5,7 +5,7 @@ $user = $_SESSION['user'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_user = $user['id'];
-    $review = htmlspecialchars($_POST['review']);
+    $review = $_POST['review'];
     $timezone = new DateTimeZone('Asia/Bangkok');
     $datetime = new DateTime('now', $timezone);
     $timestamp = $datetime->format('Y-m-d H:i:s');

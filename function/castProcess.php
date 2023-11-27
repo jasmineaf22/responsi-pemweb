@@ -3,9 +3,9 @@ include 'connect.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_movie = htmlspecialchars($_GET['mov']);
-    $name = htmlspecialchars($_POST['cast']);
-    $chara = htmlspecialchars($_POST['chara']);
+    $id_movie = $_GET['mov'];
+    $name = $_POST['cast'];
+    $chara = $_POST['chara'];
 
     $target_dir = "../images/cast/";
     $target_file = $target_dir . basename($_FILES["file"]["name"]);

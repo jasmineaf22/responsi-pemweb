@@ -7,11 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $stmt->close();
+    $sql = "SELECT * FROM user WHERE email='$email'";
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -21,10 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../views/landing.php");
             exit;
         } else {
-            header("Location: ../views/login.php");
+            
+            echo "<script>alert('Password salah. Silakan coba lagi.');
+            window.location.href='../views/login.php';</script>";
         }
     } else {
-        header("Location: ../views/login.php");
+        echo "<script>alert('User dengan email '$email' tidak ditemukan.');
+        window.location.href='../views/login.php`1`';</script>";
+        
     } 
 }
 

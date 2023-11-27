@@ -1,3 +1,5 @@
+<?php include '../function/connect.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -169,37 +171,44 @@
       </div>
     </div>
 
+
     <script>
-      function validateForm() {
-        const inputField = document.querySelector('#password');
-        var timer;
-        if (/[^a-zA-Z0-9]/.test(inputField.value)) {
-          validationMessage.classList.remove('hidden');
-          clearTimeout(timer);
-          timer = setTimeout(function () {
-            inputField.value = inputField.value.replace(/[^a-zA-Z0-9]/g, '');
-            validationMessage.classList.add('hidden');
-          }, 1000);
-        } else {
-          validationMessage.classList.add('hidden');
-        }
-      }
-      const form = document.querySelector('form');
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    document.querySelector('.center').removeAttribute('hidden');
-    document.querySelector('.center').style.display = 'flex';
+  function validateForm() {
+    const inputField = document.querySelector('#password');
+    const validationMessage = document.querySelector('#validationMessage'); // Add this line
 
-    setTimeout(function () {
-        window.location.href = 'login.php';
-    }, 5000);
-});
+    var timer;
+    if (/[^a-zA-Z0-9]/.test(inputField.value)) {
+      validationMessage.classList.remove('hidden');
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        inputField.value = inputField.value.replace(/[^a-zA-Z0-9]/g, '');
+        validationMessage.classList.add('hidden');
+      }, 1000);
+    } else {
+      validationMessage.classList.add('hidden');
+    }
+  }
 
-      const hide = document.querySelector('svg');
-      hide.addEventListener('click', function () {
-        var passwordInput = document.getElementById('password');
-        passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
-      });
-    </script>
+  
+  // const form = document.querySelector('form');
+  // form.addEventListener('submit', function (event) {
+  //   event.preventDefault();
+  //   const center = document.querySelector('.center');
+  //   center.removeAttribute('hidden');
+  //   center.style.display = 'flex';
+
+  //   setTimeout(function () {
+  //     window.location.href = 'regisProcess.php';
+  //   }, 5000);
+  // });
+
+  const hide = document.querySelector('svg');
+  hide.addEventListener('click', function () {
+    var passwordInput = document.getElementById('password');
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+  });
+</script>
+
   </body>
 </html>
